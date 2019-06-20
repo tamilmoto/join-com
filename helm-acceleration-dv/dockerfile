@@ -1,0 +1,14 @@
+FROM node:latest
+
+MAINTAINER Tamilarasan Balasuramani <tamilarasan.b@hotmail.com>
+
+RUN mkdir -p /usr/local/join-com/acceleration-dv
+WORKDIR /usr/local/join-com/acceleration-dv
+COPY acceleration-dv ./
+
+RUN yarn install
+RUN yarn build
+
+CMD ["yarn", "dev"]
+
+EXPOSE 3001

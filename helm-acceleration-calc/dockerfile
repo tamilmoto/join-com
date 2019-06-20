@@ -1,0 +1,14 @@
+FROM node:latest
+
+MAINTAINER Tamilarasan Balasuramani <tamilarasan.b@hotmail.com>
+
+RUN mkdir -p /usr/local/join-com/acceleration-calc
+WORKDIR /usr/local/join-com/acceleration-calc
+COPY acceleration-calc ./
+
+RUN yarn install
+RUN yarn build
+
+CMD ["yarn", "dev"]
+
+EXPOSE 3000
